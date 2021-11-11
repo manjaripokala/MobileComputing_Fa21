@@ -9,6 +9,7 @@ import {
   TouchableHighlight,
   Button,
   Alert,
+  LogBox,
 } from "react-native";
 import { CreditCardInput } from "react-native-credit-card-input";
 import { Secret_key, Publishable_Key } from "../../stripeKeys";
@@ -39,6 +40,8 @@ function getCreditCardToken(creditCardData) {
 }
 
 export default function Payment({ navigation }) {
+  LogBox.ignoreAllLogs(); //Ignore all log warnings
+
   const [CardInput, setCardInput] = useState({});
   const currency = "USD";
   var cardToken = null;
